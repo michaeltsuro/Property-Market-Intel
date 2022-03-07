@@ -15,6 +15,13 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('land_id');
+            //this table should be updated when a certain event happens
+            //actual amount the property was sold for
+            $table->double('price');
+            //dateof sale from time stamp
+            $table->foreign('land_id')->references('id')->on('lands')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

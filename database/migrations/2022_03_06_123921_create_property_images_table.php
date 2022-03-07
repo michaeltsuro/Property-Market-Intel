@@ -15,6 +15,11 @@ class CreatePropertyImagesTable extends Migration
     {
         Schema::create('property_images', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('project_id');
+            //A list of images for a particular project stored in 1 column
+            $table->json('images');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
