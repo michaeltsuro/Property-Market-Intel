@@ -15,6 +15,7 @@ class CreateOccupancyAnalysesTable extends Migration
     {
         Schema::create('occupancy_analyses', function (Blueprint $table) {
             $table->id();
+            //how do we add units occupied
             $table->timestamps();
         });
     }

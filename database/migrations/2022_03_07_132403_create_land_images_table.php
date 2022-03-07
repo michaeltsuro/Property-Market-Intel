@@ -15,6 +15,11 @@ class CreateLandImagesTable extends Migration
     {
         Schema::create('land_images', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('land_id');
+            //A list of images for a particular project stored in 1 column
+            $table->json('images');
+            $table->foreign('land_id')->references('id')->on('lands')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

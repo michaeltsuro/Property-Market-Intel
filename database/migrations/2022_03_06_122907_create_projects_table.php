@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('propertyOwner'); //we might take the logged user if applicable
             // $table->enum('propertyType', ['residential','office']); //put it in building specification table
             //add other vendors to the project as json object
+            //number of units associated with this property
             $table->json('vendors');
             $table->longText('projectOverview');
             $table->enum('projectStatus', ['upcoming', 'ongoing', 'completed']);

@@ -15,6 +15,14 @@ class CreateResearchPapersTable extends Migration
     {
         Schema::create('research_papers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('researchtitle');
+            $table->longText('summary');
+            //featured image
+            //research paper file
+            //source
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
