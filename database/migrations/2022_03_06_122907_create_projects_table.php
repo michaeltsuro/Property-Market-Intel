@@ -15,6 +15,18 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');//we have 3 different sets of users
+            $table->string('projectName')->unique();
+            $table->string('propertyOwner'); //we might take the logged user if applicable
+            // $table->enum('propertyType', ['residential','office']); //put it in building specification table
+            //add other vendors to the project as json object
+            $table->json('vendors');
+            $table->longText('projectOverview');
+            $table->enum('projectStatus', ['upcoming', 'ongoing', 'completed']);
+            //document for overview
+            $table->string('address');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
