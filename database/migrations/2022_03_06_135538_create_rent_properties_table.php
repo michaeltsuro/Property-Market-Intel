@@ -15,6 +15,7 @@ class CreateRentPropertiesTable extends Migration
     {
         Schema::create('rent_properties', function (Blueprint $table) {
             $table->id();
+            //rental data based on units occupied for a property
             $table->timestamps();
         });
     }
