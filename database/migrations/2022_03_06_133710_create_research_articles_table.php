@@ -19,9 +19,9 @@ class CreateResearchArticlesTable extends Migration
             $table->string('articletitle');
             $table->longText('summary');
             $table->longText('fullarticle');
-            //featured image
-            //article images
-            //source
+            $table->string('source');
+            $table->string('featuredimage'); //featured image
+            $table->json('articleimages'); //article images
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

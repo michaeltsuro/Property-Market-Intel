@@ -18,9 +18,9 @@ class CreateResearchPapersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('researchtitle');
             $table->longText('summary');
-            //featured image
-            //research paper file
-            //source
+            $table->string('source');
+            $table->string('featuredimage'); //featured image
+            $table->string('researchfile'); //research paper file
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

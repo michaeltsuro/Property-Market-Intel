@@ -21,14 +21,10 @@ class CreateLandsTable extends Migration
             $table->string('province');
             $table->string('city');
             $table->bigInteger('landsize');
-            //land prices
-            $table->double('lowerlimitprice');
-            $table->double('upperlimitprice');
-            //usd equivalent changes depending on markets, what is the best solution here
-            $table->double('usdequivalent');
-            //this should trigger an event that sales table will be updated when land is sold
-            $table->boolean('is_sold')->default(false);
-            //we have to also store images for the land
+            $table->double('lowerlimitprice'); //land prices
+            $table->double('upperlimitprice'); //land prices
+            $table->double('usdequivalent'); //usd equivalent changes depending on markets, what is the best solution here
+            $table->boolean('is_sold')->default(false);  //this should trigger an event that sales table will be updated when land is sold
             //also land status in terms of being bought or not
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();

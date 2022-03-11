@@ -9,4 +9,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class BuildingSpecification extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'project_id',
+        'propertyType',
+        'grossLeasableArea',
+        'numberofUnits',
+        'floortoceilingheight',
+        'numberoffloors',
+        'estimatedvalue'
+    ];
+
+    //relationship with other models
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }

@@ -15,7 +15,13 @@ class CreateRentPropertiesTable extends Migration
     {
         Schema::create('rent_properties', function (Blueprint $table) {
             $table->id();
-            //rental data based on units occupied for a property
+            $table->unsignedBigInteger('project_id');
+            $table->string('fullname');
+            $table->string('email');
+            $table->string('phonenumber');
+            $table->longText('message');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

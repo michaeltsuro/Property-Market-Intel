@@ -25,4 +25,21 @@ class Project extends Model
     ];
 
     //relationship with other models
+    public function buildingspecification()
+    {
+        return $this->hasOne(BuildingSpecification::class);
+    }
+
+    public function propertyimages()
+    {
+        return $this->hasMany(PropertyImage::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    //how to add vendors relationship
+
 }
