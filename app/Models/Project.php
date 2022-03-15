@@ -16,10 +16,14 @@ class Project extends Model
     //form fillable
     protected $fillable = [
         'user_id',
+        'project_sector_id',
         'projectname',
         'projectowner',
         'vendors',
         'projectoverview',
+        'propertybrochure',
+        'province',
+        'city',
         'projectstatus',
         'address'
     ];
@@ -38,6 +42,11 @@ class Project extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function projectsector()
+    {
+        return $this->belongsTo(ProjectSector::class);
     }
 
     //how to add vendors relationship
