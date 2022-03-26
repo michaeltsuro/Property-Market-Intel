@@ -12,7 +12,6 @@ class BuildingSpecification extends Model
 
     protected $fillable = [
         'project_id',
-        'propertyType',
         'grossLeasableArea',
         'numberofUnits',
         'floortoceilingheight',

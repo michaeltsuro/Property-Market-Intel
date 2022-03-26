@@ -16,7 +16,6 @@ class CreateBuildingSpecificationsTable extends Migration
         Schema::create('building_specifications', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('project_id');
-            $table->enum('propertyType', ['residential','office']);
             $table->bigInteger('grossLeasableArea');
             $table->integer('numberofUnits');
             $table->integer('floortoceilingheight');

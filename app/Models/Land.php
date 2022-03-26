@@ -17,6 +17,8 @@ class Land extends Model
         'province',
         'city',
         'landsize',
+        'landoverview',
+        'landbronchure',
         'lowerlimitprice',
         'upperlimitprice',
         'usdequivalent',

@@ -9,7 +9,7 @@ class ProjectRepository implements ProjectRepositoryInterface {
     //implement all from project interface
     public function getAllProjects()
     {
-        return Project::all();
+        return Project::with('buildingspecification', 'propertyimages')->get();
     }
 
     public function getProjectById($projectId)
