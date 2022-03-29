@@ -5,7 +5,8 @@ namespace App\Repositories;
 use App\Interfaces\ProjectRepositoryInterface;
 use App\Models\Project;
 
-class ProjectRepository implements ProjectRepositoryInterface {
+class ProjectRepository implements ProjectRepositoryInterface
+{
     //implement all from project interface
     public function getAllProjects()
     {
@@ -30,6 +31,11 @@ class ProjectRepository implements ProjectRepositoryInterface {
     public function updateProject($projectId, array $newDetails)
     {
         return Project::whereId($projectId)->update($newDetails);
+    }
+
+    public function getAllProjectsForUser()
+    {
+        return Project::with('user')->get(); //there might be a better way to do this
     }
 
 }

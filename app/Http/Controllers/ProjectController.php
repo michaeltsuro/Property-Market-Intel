@@ -19,14 +19,17 @@ class ProjectController extends Controller
 
     public function index(): JsonResponse
     {
-        return response()->json([
+        return response()->json(
+            [
             'data' => $this->projectRepository->getAllProjects()
-        ]);
+            ]
+        );
     }
 
     public function store(Request $request): JsonResponse
     {
-        $projectDetails = $request->only([
+        $projectDetails = $request->only(
+            [
             'user_id',
             'project_sector_id',
             'projectname',
@@ -34,11 +37,27 @@ class ProjectController extends Controller
             'vendors',
             'projectoverview',
             'propertybrochure',
+            'images',
             'province',
             'city',
             'projectstatus',
             'address'
-        ]);
+            ]
+        );
+
+        //for multiple images
+        $imagefiles = [];
+        if($request->hasFile('images'))
+        {
+            foreach($request->file('images') as $image)
+            {
+                $name = time().rand(1,100).'.'.$image->extension();
+                $image->move(public_path('uploads'), $name);
+                $imagefiles[] = $name;
+            }
+        }
+
+        $projectDetails['images'] = $imagefiles;
 
         return response()->json(
             [
@@ -52,15 +71,18 @@ class ProjectController extends Controller
     {
         $projectId = $request->route('id');
 
-        return response()->json([
+        return response()->json(
+            [
             'data' => $this->projectRepository->getProjectById($projectId)
-        ]);
+            ]
+        );
     }
 
     public function update(Request $request): JsonResponse
     {
         $projectId = $request->route('id');
-        $projectDetails = $request->only([
+        $projectDetails = $request->only(
+            [
             'user_id',
             'project_sector_id',
             'projectname',
@@ -68,15 +90,33 @@ class ProjectController extends Controller
             'vendors',
             'projectoverview',
             'propertybrochure',
+            'images',
             'province',
             'city',
             'projectstatus',
             'address'
-        ]);
+            ]
+        );
 
-        return response()->json([
+        //for multiple images
+        $imagefiles = [];
+        if($request->hasFile('images'))
+        {
+            foreach($request->file('images') as $image)
+            {
+                $name = time().rand(1,100).'.'.$image->extension();
+                $image->move(public_path('uploads'), $name);
+                $imagefiles[] = $name;
+            }
+        }
+
+        $projectDetails['images'] = $imagefiles;
+
+        return response()->json(
+            [
             'data' => $this->projectRepository->updateProject($projectId, $projectDetails)
-        ]);
+            ]
+        );
     }
 
     public function destroy(Request $request): JsonResponse
@@ -85,5 +125,11 @@ class ProjectController extends Controller
         $this->projectRepository->deleteProject($projectId);
 
         return response()->json(null, Response::HTTP_NO_CONTENT);
+    }
+
+    //get all projects of a single user
+    public function userProjects()
+    {
+
     }
 }

@@ -19,6 +19,7 @@ class Land extends Model
         'landsize',
         'landoverview',
         'landbronchure',
+        'images',
         'lowerlimitprice',
         'upperlimitprice',
         'usdequivalent',
@@ -31,8 +32,4 @@ class Land extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function landimages()
-    {
-        return $this->hasMany(LandImage::class);
-    }
 }

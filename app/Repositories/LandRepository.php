@@ -5,7 +5,8 @@ namespace App\Repositories;
 use App\Interfaces\LandRepositoryInterface;
 use App\Models\Land;
 
-class LandRepository implements LandRepositoryInterface{
+class LandRepository implements LandRepositoryInterface
+{
 
     public function addLand(array $landDetails)
     {

@@ -2,7 +2,8 @@
 
 namespace App\Interfaces;
 
-interface LandRepositoryInterface {
+interface LandRepositoryInterface
+{
 
     //define all the required methods
     public function addLand(array $landDetails);

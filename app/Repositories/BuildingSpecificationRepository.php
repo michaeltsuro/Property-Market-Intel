@@ -5,7 +5,8 @@ namespace App\Repositories;
 use App\Interfaces\BuildingRepositoryInterface;
 use App\Models\BuildingSpecification;
 
-class BuildingSpecificationRepository implements BuildingRepositoryInterface {
+class BuildingSpecificationRepository implements BuildingRepositoryInterface
+{
 
 
     public function getBuildingSpecification()

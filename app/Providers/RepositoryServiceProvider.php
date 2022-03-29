@@ -23,7 +23,6 @@ class RepositoryServiceProvider extends ServiceProvider
         //bind
         $this->app->bind(ProjectRepositoryInterface::class, ProjectRepository::class);
         $this->app->bind(BuildingRepositoryInterface::class, BuildingSpecificationRepository::class);
-        $this->app->bind(PropertyImageRepositoryInterface::class, PropertyImageRepository::class);
         $this->app->bind(LandRepositoryInterface::class, LandRepository::class);
     }
 

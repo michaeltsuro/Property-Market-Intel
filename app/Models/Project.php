@@ -22,21 +22,22 @@ class Project extends Model
         'vendors',
         'projectoverview',
         'propertybrochure',
+        'images',
         'province',
         'city',
         'projectstatus',
         'address'
     ];
 
+    public function setImagesAttribute($value)
+    {
+        $this->attributes['images'] = json_encode($value);
+    }
+
     //relationship with other models
     public function buildingspecification()
     {
         return $this->hasOne(BuildingSpecification::class);
-    }
-
-    public function propertyimages()
-    {
-        return $this->hasMany(PropertyImage::class);
     }
 
     public function user()

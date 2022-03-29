@@ -2,7 +2,8 @@
 
 namespace App\Interfaces;
 
-interface BuildingRepositoryInterface {
+interface BuildingRepositoryInterface
+{
 
     //define all the required methods for building(all functionality)
     public function getBuildingSpecification();

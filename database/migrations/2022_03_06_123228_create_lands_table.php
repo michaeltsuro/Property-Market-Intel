@@ -23,6 +23,7 @@ class CreateLandsTable extends Migration
             $table->bigInteger('landsize');
             $table->string('landoverview');
             $table->string('landbronchure');
+            $table->string('images');
             $table->double('lowerlimitprice'); //land prices
             $table->double('upperlimitprice'); //land prices
             $table->double('usdequivalent'); //usd equivalent changes depending on markets, what is the best solution here

@@ -23,7 +23,8 @@ class CreateProjectsTable extends Migration
             //number of units associated with this property
             $table->json('vendors');
             $table->longText('projectoverview');
-            $table->string('propertybrochure'); //file
+            $table->string('propertybrochure'); //file\
+            $table->string('images');
             // $table->enum('projectstatus', ['upcoming', 'ongoing', 'completed']);
             //document for overview
             $table->string('province'); //autocomplete

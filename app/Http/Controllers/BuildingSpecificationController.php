@@ -19,21 +19,25 @@ class BuildingSpecificationController extends Controller
 
     public function index(): JsonResponse
     {
-        return response()->json([
+        return response()->json(
+            [
             'data' => $this->buildingRepository->getBuildingSpecification()
-        ]);
+            ]
+        );
     }
 
     public function store(Request $request): JsonResponse
     {
-        $buildingDetails = $request->only([
+        $buildingDetails = $request->only(
+            [
             'project_id',
             'grossLeasableArea',
             'numberofUnits',
             'floortoceilingheight',
             'numberoffloors',
             'estimatedvalue'
-        ]);
+            ]
+        );
 
         return response()->json(
             [
@@ -47,26 +51,32 @@ class BuildingSpecificationController extends Controller
     {
         $buildingId = $request->route('id');
 
-        return response()->json([
+        return response()->json(
+            [
             'data' => $this->buildingRepository->getBuildingSpecificationById($buildingId)
-        ]);
+            ]
+        );
     }
 
     public function update(Request $request): JsonResponse
     {
         $buildingId = $request->route('id');
-        $buildingDetails = $request->only([
+        $buildingDetails = $request->only(
+            [
             'project_id',
             'grossLeasableArea',
             'numberofUnits',
             'floortoceilingheight',
             'numberoffloors',
             'estimatedvalue'
-        ]);
+            ]
+        );
 
-        return response()->json([
+        return response()->json(
+            [
             'data' => $this->buildingRepository->updateBuildingSpecification($buildingId, $buildingDetails)
-        ]);
+            ]
+        );
     }
 
     public function destroy(Request $request): JsonResponse
