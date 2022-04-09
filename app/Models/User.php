@@ -11,8 +11,7 @@ use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
-    use LaratrustUserTrait;
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, LaratrustUserTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -44,24 +43,44 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //user roles and permissions
-
-    //relationship with other models
+    /**
+     * Get all projects that belongs to the user.
+     *
+     * @return collection
+     */
     public function projects()
     {
         return $this->hasMany(Project::class);
     }
 
+    /**
+     * Get all the research articles that belongs to the user.
+     *
+     *
+     * @return collection
+     */
     public function researcharticles()
     {
         return $this->hasMany(ResearchArticles::class);
     }
 
+    /**
+     * Get all the research papers that belongs to the user.
+     *
+     *
+     * @return collection
+     */
     public function researchpapers()
     {
         return $this->hasMany(ResearchPapers::class);
     }
 
+    /**
+     * Get all the land that belongs to the user.
+     *
+     *
+     * @return collection
+     */
     public function lands()
     {
         return $this->hasMany(Land::class);

@@ -10,6 +10,8 @@ class ResearchPapers extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'research_paper';
+
     protected $fillable = [
         'user_id',
         'researchtitle',
@@ -19,7 +21,11 @@ class ResearchPapers extends Model
         'researchfile'
     ];
 
-    //relationship with other user model
+    /**
+     * Set all image attributes.
+     *
+     * @return string
+     */
     public function user()
     {
         return $this->belongsTo(User::class);

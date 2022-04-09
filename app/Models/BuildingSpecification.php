@@ -10,6 +10,8 @@ class BuildingSpecification extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'building_specifications';
+
     protected $fillable = [
         'project_id',
         'grossLeasableArea',
@@ -19,7 +21,11 @@ class BuildingSpecification extends Model
         'estimatedvalue'
     ];
 
-    //relationship with other models
+    /**
+     * Get the project that owns the building specification.
+     *
+     * @return collection
+     */
     public function project()
     {
         return $this->belongsTo(Project::class);

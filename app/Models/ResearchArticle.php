@@ -10,6 +10,8 @@ class ResearchArticles extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'research_articles';
+
     protected $fillable = [
         'user_id',
         'articletitle',
@@ -20,7 +22,23 @@ class ResearchArticles extends Model
         'articleimages'
     ];
 
-    //relationship with other models
+    /**
+     * Set all image attributes.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setArticleImagesAttribute($value)
+    {
+        $this->attributes['articleimages'] = json_encode($value);
+    }
+
+    /**
+     * Get the user that owns the research article.
+     *
+     *
+     * @return string
+     */
     public function user()
     {
         return $this->belongsTo(User::class);

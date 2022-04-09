@@ -4,7 +4,6 @@ namespace App\Interfaces;
 
 interface BuildingRepositoryInterface
 {
-
     //define all the required methods for building(all functionality)
     public function getBuildingSpecification();
     public function getBuildingSpecificationById($buildingId);

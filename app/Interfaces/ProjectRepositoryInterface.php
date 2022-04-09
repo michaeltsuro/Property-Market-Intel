@@ -4,7 +4,6 @@ namespace App\Interfaces;
 
 interface ProjectRepositoryInterface
 {
-
     //define all the required methods for project(all functionality)
     public function getAllProjects();
     public function getProjectById($projectId);

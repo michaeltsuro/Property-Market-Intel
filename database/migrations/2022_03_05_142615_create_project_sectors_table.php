@@ -16,6 +16,7 @@ class CreateProjectSectorsTable extends Migration
         Schema::create('project_sectors', function (Blueprint $table) {
             $table->id();
             $table->string('sectorname');
+            $table->longText('description');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -10,6 +10,8 @@ class Land extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'lands';
+
     protected $fillable = [
         'user_id',
         'landname',
@@ -26,10 +28,13 @@ class Land extends Model
         'is_sold'
     ];
 
-    //relationship with other models
+    /**
+     * Get the user that owns the land.
+     *
+     * @return string
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
 }

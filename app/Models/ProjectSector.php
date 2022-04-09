@@ -10,10 +10,18 @@ class ProjectSector extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'project_sectors';
+
     protected $fillable = [
-        'sectorname'
+        'sectorname',
+        'description'
     ];
 
+    /**
+     * Get all the projects that belongs to different sectors.
+     *
+     * @return collection
+     */
     public function projects()
     {
         return $this->hasMany(Project::class);
