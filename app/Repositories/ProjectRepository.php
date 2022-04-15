@@ -14,7 +14,7 @@ class ProjectRepository implements ProjectRepositoryInterface
      */
     public function getAllProjects()
     {
-        return Project::with('buildingspecification', 'propertyimages')->get();
+        return Project::with('buildingspecification', 'projectimages')->get();
     }
 
     /**
@@ -25,7 +25,7 @@ class ProjectRepository implements ProjectRepositoryInterface
      */
     public function getProjectById($projectId)
     {
-        return Project::findOrFail($projectId); //use eloquent relationship
+        return Project::with('buildingspecification', 'projectimages')->findOrFail($projectId); //use eloquent relationship
     }
 
     /**

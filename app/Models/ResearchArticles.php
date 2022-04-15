@@ -12,6 +12,7 @@ class ResearchArticles extends Model
 
     protected $table = 'research_articles';
 
+    //TODO research article fields
     protected $fillable = [
         'user_id',
         'articletitle',

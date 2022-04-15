@@ -14,7 +14,7 @@ class ProjectSector extends Model
 
     protected $fillable = [
         'sectorname',
-        'description'
+        'description',
     ];
 
     /**

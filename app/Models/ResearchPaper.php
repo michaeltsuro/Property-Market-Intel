@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ResearchPapers extends Model
+class ResearchPaper extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $table = 'research_paper';
 
+    //TODO research paper fields
     protected $fillable = [
         'user_id',
         'researchtitle',
